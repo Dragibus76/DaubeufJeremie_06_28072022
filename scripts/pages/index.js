@@ -1,5 +1,5 @@
 //******************* IMPORTS ********************/
-import { photographerFactory } from "../factories/photographer.js";
+import { photographerFactory } from "../factories/photographerFactory.js";
 
 //******************* FETCH ********************/
 async function getPhotographers() {
