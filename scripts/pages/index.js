@@ -1,9 +1,7 @@
-//******************* IMPORTS ********************/
+// imports
 import { photographerFactory } from "../factories/photographerFactory.js";
 
-//******************* FETCH ********************/
 async function getPhotographers() {
-  // fetch data 
   const data = await fetch("./data/photographers.json");
   // result
   const result = await data.json();
@@ -12,7 +10,6 @@ async function getPhotographers() {
   };
 }
 
-//******************* DISPLAY FUNCTION ********************/
 async function displayData(photographers) {
   // select photographers section
   const photographersSection = document.querySelector(".photographer_section");
@@ -25,7 +22,6 @@ async function displayData(photographers) {
   });
 }
 
-//******************* GET DATA ********************/
 async function init() {
   //  get data
   const { photographers } = await getPhotographers();
