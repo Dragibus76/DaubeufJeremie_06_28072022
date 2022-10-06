@@ -3,12 +3,11 @@ import { Image } from "../class/Image.js";
 import { Video } from "../class/Video.js";
 
 export function mediaFactory(mediaInfo, mediaList, photographerId) {
-  let newMedia = {};
 
   // if image is strictly unequal to undefined
-  if (mediaInfo.image !== undefined) {
+  if (mediaInfo.image) {
     // create new image
-    newMedia = new Image(
+    return new Image(
       mediaInfo.title,
       mediaInfo.likes,
       mediaInfo.image,
@@ -17,18 +16,16 @@ export function mediaFactory(mediaInfo, mediaList, photographerId) {
       photographerId,
       mediaList
     );
-  } else {
+  } 
     // create new video
-    newMedia = new Video(
-      mediaInfo.title,
-      mediaInfo.likes,
-      mediaInfo.image,
-      mediaInfo.video,
-      mediaInfo.date,
-      photographerId,
-      mediaList
-    );
-  }
-
-  return newMedia;
+  return new Video(
+    mediaInfo.title,
+    mediaInfo.likes,
+    mediaInfo.image,
+    mediaInfo.video,
+    mediaInfo.date,
+    photographerId,
+    mediaList
+  );
+  
 }
