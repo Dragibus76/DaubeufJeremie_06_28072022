@@ -19,6 +19,11 @@ const getPhotographInfo = () => {
       const myPhotographer = json.photographers.find(function (photographer) {
         return photographer.id === photographerId;
       });
+// const getPhotographInfo = await fetch("data/photographers.json").then((res) => res.json())
+// const myPhotographer = json.photographers.find(function(photographer)
+// {
+//   return photographer.id === photographerId;
+// });
 
       // display price
       displayPrice(myPhotographer.price);
