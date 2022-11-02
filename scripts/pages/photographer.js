@@ -11,31 +11,17 @@ const url = new URL(window.location);
 const searchParams = new URLSearchParams(url.search);
 // get photographer id from url in number
 const photographerId = Number(searchParams.get("id"));
-const getPhotographInfo = () => {
+const getPhotographInfo = async () => {
   
-  fetch("data/photographers.json")
-    .then((res) => res.json())
-    .then((json) => {
-      const myPhotographer = json.photographers.find(function (photographer) {
-        return photographer.id === photographerId;
-      });
-// const getPhotographInfo = await fetch("data/photographers.json").then((res) => res.json())
-// const myPhotographer = json.photographers.find(function(photographer)
-// {
-//   return photographer.id === photographerId;
-// });
+const json = await fetch("data/photographers.json").then((res) => res.json())
+console.log(json)
+const myPhotographer = json.photographers.find((photographer) => photographer.id == photographerId);
 
       // display price
       displayPrice(myPhotographer.price);
 
       // display photographer
-      displayPhotographer(
-        myPhotographer.name,
-        myPhotographer.portrait,
-        myPhotographer.city,
-        myPhotographer.country,
-        myPhotographer.tagline
-      );
+      displayPhotographer(myPhotographer);
 
       // CONTACT FORM
       const nameForm = document.querySelector(".name-form");
@@ -183,6 +169,5 @@ const getPhotographInfo = () => {
           }
           Lightbox.init();
         });
-    });
 };
 getPhotographInfo();

@@ -1,18 +1,18 @@
-export function displayPhotographer(name, portrait, city, country, tagline) {
+export function displayPhotographer(data) {
   // display photographer header
   const sectionPhotographHeader = document.getElementById("photographHeader");
   sectionPhotographHeader.innerHTML =
     sectionPhotographHeader.innerHTML +
     `<article class="photographProfil">
-        <h1 class="photographName">${name}</h1> 
-        <span class="photographLocation">${city}, ${country}</span>
-        <p class="photographTagline">${tagline}</p>
+        <h1 class="photographName">${data.name}</h1> 
+        <span class="photographLocation">${data.city}, ${data.country}</span>
+        <p class="photographTagline">${data.tagline}</p>
       </article>
       <div class="divContactButton">
           <button title= "contactez-moi" class="contactButton">Contactez-moi</button>
       </div>
       <figure id="photographPortrait" class="photographPortrait">
-        <img class="photographPhotoProfil" src="assets/photographers/${portrait}" alt="${name}"></img>
+        <img class="photographPhotoProfil" src="assets/photographers/${data.portrait}" alt="${data.name}"></img>
       </figure>`;
 }
 
